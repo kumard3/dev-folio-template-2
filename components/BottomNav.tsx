@@ -1,27 +1,18 @@
-import Link from 'next/link'
-import React from 'react'
-import { useTheme } from 'next-themes'
+import Link from "next/link";
+import React from "react";
+import { useTheme } from "next-themes";
 export default function BottomNav() {
-  const { theme, setTheme } = useTheme()
+  const { theme, setTheme } = useTheme();
   const NewTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark')
-  }
-  const [items, setItems] = React.useState('')
-
-  React.useEffect(() => {
-    //@ts-ignore
-    const items = JSON.parse(localStorage.getItem('name'))
-    if (items) {
-      setItems(items)
-    }
-  }, [])
-  console.log(items)
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
+  console.log(theme);
   return (
     //@ts-ignore
     <center>
       <div className=" fixed fill-[#1F2937] dark:fill-white bottom-5 w-full  ">
         <div className=" shadow-2xl flex justify-center items-center bg-white border-[#F3F4F6]  dark:bg-[#111827] dark:border-[#374151] border  rounded-xl max-w-[24rem] py-3 px-5">
-          <Link href={`/templates/portfolio2/${items}`} passHref>
+          <Link href="/">
             <div className=" bg-gray-100 dark:bg-[#1F2937] w-[60px] h-[60px] flex justify-center items-center mx-2 rounded-xl cursor-pointer hover:bg-[#3B82F6] dark:hover:bg-[#3B82F6] ">
               <svg
                 width="40"
@@ -38,12 +29,12 @@ export default function BottomNav() {
               </svg>
             </div>
           </Link>
-          <Link href="/templates/portfolio2/project" passHref>
+          <Link href="/project">
             <div className=" bg-gray-100 dark:bg-[#1F2937]  w-[60px] h-[60px] flex justify-center items-center mx-2 rounded-xl cursor-pointer hover:bg-[#3B82F6] dark:hover:bg-[#3B82F6]   ">
               <img src="/lightBulb.svg" width="40" height="40" />
             </div>
           </Link>
-          <Link href="/templates/portfolio2/about" passHref>
+          <Link href="/about">
             <div className=" bg-gray-100 dark:bg-[#1F2937] l w-[60px] h-[60px] flex justify-center items-center mx-2 rounded-xl cursor-pointer hover:bg-[#3B82F6] dark:hover:bg-[#3B82F6] ">
               <img src="/Profile.svg" width="40" height="40" />
             </div>
@@ -57,7 +48,7 @@ export default function BottomNav() {
             className=" bg-gray-100 dark:bg-[#1F2937] w-[60px] h-[60px] flex justify-center items-center mx-2 rounded-xl cursor-pointer hover:bg-[#3B82F6] dark:hover:bg-[#3B82F6] "
             onClick={NewTheme}
           >
-            {theme === 'light' ? (
+            {theme === "light" ? (
               <img src="/lightMode.svg" width="40" height="40" />
             ) : (
               <img src="/darkmode.svg" width="40" height="40" />
@@ -67,5 +58,5 @@ export default function BottomNav() {
       </div>
       {/* @ts-ignore */}
     </center>
-  )
+  );
 }
