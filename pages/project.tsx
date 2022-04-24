@@ -5,7 +5,6 @@ import { GetServerSideProps } from 'next'
 import React, { useEffect, useState } from 'react'
 import BottomNav from '../components/BottomNav'
 
-
 export default function Project({ githubRepoData }: any) {
   const [data, setData] = React.useState<string[] | null>([])
 
